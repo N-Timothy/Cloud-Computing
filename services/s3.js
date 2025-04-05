@@ -8,10 +8,10 @@ const {
 const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
 
 // Get configuration from environment variables
-const region = process.env.AWS_REGION || "ap-southeast-1";
-const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
-const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
-const bucketName = process.env.AWS_BUCKET_NAME;
+const region = process.env.REGION || "ap-southeast-1";
+const accessKeyId = process.env.ACCESS_KEY_ID;
+const secretAccessKey = process.env.SECRET_ACCESS_KEY;
+const bucketName = process.env.BUCKET_NAME;
 
 // Create S3 client
 const s3Client = new S3Client({

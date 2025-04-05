@@ -17,6 +17,11 @@ app.set("views", path.join(__dirname, "views"));
 // Routes
 app.use("/gallery", galleryRoutes);
 
+// Add route for the root path
+app.get("/", (req, res) => {
+  res.send("Welcome to my gallery");
+});
+
 // Redirect root to gallery
 app.get("/", (req, res) => {
   res.redirect("/gallery");

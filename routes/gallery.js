@@ -47,7 +47,7 @@ router.post("/upload", upload.single("file"), async (req, res) => {
       return res.status(400).json({ error: "No file uploaded" });
     }
 
-    // Upload file to S3
+    // Upload file to S3 with folder structure
     await s3Service.uploadFile(req.file);
     res.redirect("/gallery");
   } catch (error) {

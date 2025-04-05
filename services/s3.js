@@ -25,7 +25,9 @@ const s3Client = new S3Client({
 // List all objects in the bucket
 const listObjects = async () => {
   try {
-    const command = new ListObjectsV2Command({ Bucket: bucketName });
+    const command = new ListObjectsV2Command({
+      Bucket: bucketName,
+    });
     const data = await s3Client.send(command);
     return data.Contents || [];
   } catch (error) {
@@ -39,7 +41,7 @@ const uploadFile = async (file) => {
   try {
     const params = {
       Bucket: bucketName,
-      Key: file.originalname,
+      Key: `${file.originalname}`, // Add folder prefix
       Body: file.buffer,
       ContentType: file.mimetype,
     };
